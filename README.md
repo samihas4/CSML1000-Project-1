@@ -10,3 +10,4 @@ Contributors
 
 > This project predicts whether a given transaction is fradulent or not. 
 > The predictions are made using a trained classification model, which uses Random Forest Algorithm. 
+> This is a test comment.
