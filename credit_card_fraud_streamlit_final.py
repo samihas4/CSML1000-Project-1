@@ -59,7 +59,7 @@ selectbox_options = {
 with st.form('user_inputs'): 
   distance_from_home = st.number_input('Distance from home (km)', min_value=0, key = 1)
   distance_from_last_transaction = st.number_input('Distance from last txn (km)', min_value=0, key = 2)
-  ratio_to_median_purchase_price = st.number_input('Bill Length (digits)', min_value=0, key = 3)
+  ratio_to_median_purchase_price = st.slider('Bill Length (digits)', min_value=0, max_value=4, key = 3)
   repeat_retailer = st.selectbox('Repeat retailer', options=[0, 1], key = 4, format_func=lambda x: selectbox_options.get(x),)
   used_chip = st.selectbox ('Used chip', options=[0, 1], key = 5, format_func=lambda x: selectbox_options.get(x),)
   used_pin_number = st.selectbox ('Used pin number', options=[0, 1], key = 6, format_func=lambda x: selectbox_options.get(x),)
