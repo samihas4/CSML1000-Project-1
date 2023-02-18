@@ -9,6 +9,10 @@ st.title('Credit Card Fraud Detection')
 st.write("This app uses 7 inputs to predict if the transaction is fraud or not ")
   
 rf_model_path = './random_forest.pickle'
+map_pickle = open(rf_model_path, 'rb')
+loaded_model = pickle.load(map_pickle)
+print("ML model loaded ......")
+map_pickle.close()
 
 # penguin_file = st.file_uploader('Upload your own data')
 
