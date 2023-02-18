@@ -8,5 +8,5 @@ Contributors
 
 # Project Description
 
-> This project predicts whether a given transaction is fradulent or not. 
+> This project predicts whether a given credit card transaction is fradulent or not. 
 > The predictions are made using a trained classification model, which uses Random Forest Algorithm. 
