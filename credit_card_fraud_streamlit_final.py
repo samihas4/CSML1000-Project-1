@@ -52,15 +52,18 @@ map_pickle.close()
 #     features = pd.get_dummies(features)
 #     output, credit_card_fraud_mapping = pd.factorize(output)
     
-
+selectbox_options = {
+  0: "No",
+  1: "Yes"
+}
 with st.form('user_inputs'): 
   distance_from_home = st.number_input('Distance from home (km)', min_value=0, key = 1)
   distance_from_last_transaction = st.number_input('Distance from last txn (km)', min_value=0, key = 2)
   ratio_to_median_purchase_price = st.number_input('Bill Length (digits)', min_value=0, key = 3)
-  repeat_retailer = st.selectbox('Repeat retailer', options=[0, 1], key = 4)
-  used_chip = st.selectbox ('Used chip', options=[0, 1], key = 5)
-  used_pin_number = st.selectbox ('Used pin number', options=[0, 1], key = 6)
-  online_order = st.selectbox('Online order', options=[0, 1], key = 7)
+  repeat_retailer = st.selectbox('Repeat retailer', options=[0, 1], key = 4, format_func=lambda x: selectbox_options.get(x),)
+  used_chip = st.selectbox ('Used chip', options=[0, 1], key = 5, format_func=lambda x: selectbox_options.get(x),)
+  used_pin_number = st.selectbox ('Used pin number', options=[0, 1], key = 6, format_func=lambda x: selectbox_options.get(x),)
+  online_order = st.selectbox('Online order', options=[0, 1], key = 7, format_func=lambda x: selectbox_options.get(x),)
   st.form_submit_button()
 
 
