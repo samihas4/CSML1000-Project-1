@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
  
 st.title('Credit Card Fraud Detection')
-st.write("This app uses 7 inputs to predict if the transaction is fraud or not ")
+st.write("This app uses 8 inputs to predict if the transaction is fraud or not ")
   
 rf_model_path = './random_forest.pickle'
 map_pickle = open(rf_model_path, 'rb')
@@ -57,9 +57,10 @@ selectbox_options = {
   1: "Yes"
 }
 with st.form('user_inputs'): 
-  distance_from_home = st.number_input('Distance from home (km)', min_value=0, key = 1)
-  distance_from_last_transaction = st.number_input('Distance from last txn (km)', min_value=0, key = 2)
-  ratio_to_median_purchase_price = st.slider('Bill Length (digits)', min_value=0, max_value=4, key = 3)
+  distance_from_home = st.number_input('Distance from home (KM)', min_value=0, key = 1)
+  distance_from_last_transaction = st.number_input('Distance from last transaction (KM)', min_value=0, key = 2)
+  median_purchase_price = st.number_input('Median Purchase Price (of card holder)', min_value=0, max_value=10000, key = 3)
+  current_purchase_price = st.number_input('Current Transaction', min_value=0, max_value=10000, key = 8)
   repeat_retailer = st.selectbox('Repeat retailer', options=[0, 1], key = 4, format_func=lambda x: selectbox_options.get(x),)
   used_chip = st.selectbox ('Used chip', options=[0, 1], key = 5, format_func=lambda x: selectbox_options.get(x),)
   used_pin_number = st.selectbox ('Used pin number', options=[0, 1], key = 6, format_func=lambda x: selectbox_options.get(x),)
@@ -67,7 +68,7 @@ with st.form('user_inputs'):
   st.form_submit_button()
 
 
-new_prediction = loaded_model.predict([[distance_from_home, distance_from_last_transaction, ratio_to_median_purchase_price, 
+new_prediction = loaded_model.predict([[distance_from_home, distance_from_last_transaction, current_purchase_price/median_purchase_price, 
                                repeat_retailer, used_chip, used_pin_number, online_order]])
 is_fraud = new_prediction[0] == 1
 st.write('The credit card transaction fraud indicator : {} '.format(is_fraud))
