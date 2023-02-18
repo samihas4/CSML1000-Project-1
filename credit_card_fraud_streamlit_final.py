@@ -60,7 +60,7 @@ with st.form('user_inputs'):
   distance_from_home = st.number_input('Distance from home (KM)', min_value=0, key = 1)
   distance_from_last_transaction = st.number_input('Distance from last transaction (KM)', min_value=0, key = 2)
   median_purchase_price = st.number_input('Median Purchase Price (of card holder)', min_value=0, max_value=10000, key = 3)
-  current_purchase_price = st.number_input('Current Transaction', min_value=0, max_value=10000, key = 8)
+  current_purchase_price = st.number_input('Current Transaction', min_value=1, max_value=10000, key = 8)
   repeat_retailer = st.selectbox('Repeat retailer', options=[0, 1], key = 4, format_func=lambda x: selectbox_options.get(x),)
   used_chip = st.selectbox ('Used chip', options=[0, 1], key = 5, format_func=lambda x: selectbox_options.get(x),)
   used_pin_number = st.selectbox ('Used pin number', options=[0, 1], key = 6, format_func=lambda x: selectbox_options.get(x),)
