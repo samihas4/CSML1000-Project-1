@@ -5,6 +5,7 @@ Contributors
 1. Kolitha
 2. Prudvinath
 3. Samiha
+4. Jeremy
 
 # Project Description
 
